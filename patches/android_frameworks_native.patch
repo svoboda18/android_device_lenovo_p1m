@@ -1,0 +1,43 @@
+diff --git a/libs/ui/GraphicBuffer.cpp b/libs/ui/GraphicBuffer.cpp
+index 6235bd6cc4aa941fc67d783a3a857f4cac56a4ff..679471f6754cb5b40cd70267288d85741641ec48 100644
+--- a/libs/ui/GraphicBuffer.cpp
++++ b/libs/ui/GraphicBuffer.cpp
+@@ -56,6 +56,20 @@ GraphicBuffer::GraphicBuffer()
+     layerCount = 0;
+     handle = NULL;
+ }
++ 
++GraphicBuffer::GraphicBuffer(uint32_t inWidth, uint32_t inHeight,
++        PixelFormat inFormat, uint32_t inUsage)
++    : BASE(), mOwner(ownData), mBufferMapper(GraphicBufferMapper::get()),
++      mInitCheck(NO_ERROR), mId(getUniqueId()), mGenerationNumber(0)
++{
++    width  =
++    height =
++    stride =
++    format =
++    usage  = 0;
++    handle = NULL;
++    mInitCheck = initWithSize(inWidth, inHeight, inFormat, inUsage, 0, "<Unknown>");
++}
+ 
+ // deprecated
+ GraphicBuffer::GraphicBuffer(uint32_t inWidth, uint32_t inHeight,
+diff --git a/libs/ui/include/ui/GraphicBuffer.h b/libs/ui/include/ui/GraphicBuffer.h
+index 95c2d2272ee67719a4e3a728b85de54c460f472e..6212f46b2190bcd8449a88762a62c66d59a2e245 100644
+--- a/libs/ui/include/ui/GraphicBuffer.h
++++ b/libs/ui/include/ui/GraphicBuffer.h
+@@ -133,7 +133,9 @@ public:
+             uint32_t inLayerCount, uint32_t inUsage, uint32_t inStride,
+             native_handle_t* inHandle, bool keepOwnership);
+     GraphicBuffer(uint32_t inWidth, uint32_t inHeight, PixelFormat inFormat,
+-            uint32_t inUsage, std::string requestorName = "<Unknown>");
++            uint32_t inUsage);
++    GraphicBuffer(uint32_t inWidth, uint32_t inHeight, PixelFormat inFormat,
++            uint32_t inUsage, std::string requestorName);
+ 
+     // return status
+     status_t initCheck() const;
+-- 
+2.20.1
+

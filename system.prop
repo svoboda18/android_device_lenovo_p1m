@@ -1,0 +1,64 @@
+#
+# system.prop for p1m by svoboda18
+#
+
+# RIL
+rild.libpath=/vendor/lib64/mtk-ril.so
+rild.libargs=-d /dev/ttyC0
+ro.telephony.sim.count=2
+persist.radio.default.sim=0
+persist.radio.mobile.data=0,0
+persist.radio.multisim.config=dsds
+bgw.current3gband=0
+ril.current.share_modem=2
+ril.external.md=0
+ril.telephony.mode=0
+persist.radio.fd.counter=15
+persist.radio.fd.off.counter=5
+persist.radio.fd.r8.counter=15
+persist.radio.fd.off.r8.counter=5
+ro.mtk_gemini_support=1
+persist.gemini.sim_num=2
+ro.gemini.smart_sim_switch=false
+
+# Display
+debug.hwui.use_buffer_age=false
+
+# Wifi
+wifi.interface=wlan0
+wifi.direct.interface=p2p0
+ro.mediatek.wlan.wsc=1
+ro.mediatek.wlan.p2p=1
+mediatek.wlan.ctia=0
+
+# OpenGL
+ro.opengles.version=196609
+ro.kernel.qemu.gles=0
+debug.hwui.render_dirty_regions=false
+
+# Audio
+ro.camera.sound.forced=0
+ro.audio.silent=0
+persist.af.audio_patch_fm=1
+ro.zygote.preload.enable=0
+
+# LCD Density
+ro.sf.lcd_density=320
+
+# MTK
+ro.oem_unlock_supported=1
+ril.flightmode.poweroffMD=1
+fmradio.driver.enable=0
+persist.md.perm.checked=1
+ro.mediatek.platform=MT6735m
+bgw.current3gband=0
+ro.sf.hwrotation=0
+persist.mtk.wcn.combo.chipid=0x6630
+drm.service.enabled=true
+wfd.dummy.enable=1
+persist.sys.display.clearMotion=0
+ro.mtk_clearmotion_support=0
+keyguard.no_require_sim=true
+camera.disable_zsl_mode=1
+persist.debug.wfd.enable=1
+persist.sys.enable_rescue=false

@@ -1,0 +1,20 @@
+diff --git a/rild/Android.mk b/rild/Android.mk
+index 7ac505ca246520b9b9acace3b1364858d7436b9b..a171445f0fe287c19eb71291234d4d7ab2e49797 100644
+--- a/rild/Android.mk
++++ b/rild/Android.mk
+@@ -1,5 +1,7 @@
+ # Copyright 2006 The Android Open Source Project
+ 
++ifneq ($(BOARD_PROVIDES_RILD),true)
++
+ LOCAL_PATH:= $(call my-dir)
+ include $(CLEAR_VARS)
+ 
+@@ -31,3 +33,4 @@ LOCAL_INIT_RC := rild.rc
+ 
+ include $(BUILD_EXECUTABLE)
+ 
++endif # BOARD_PROVIDES_RILD
+-- 
+2.20.1
+

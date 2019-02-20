@@ -1,0 +1,15 @@
+diff --git a/core/jni/fd_utils.cpp b/core/jni/fd_utils.cpp
+index 92a542676bcde541f04f0c3f5860c62bd333e84b..d15e4864ffd61f4012d10dd87bb377c53148767f 100644
+--- a/core/jni/fd_utils.cpp
++++ b/core/jni/fd_utils.cpp
+@@ -43,6 +43,7 @@ static const char* kPathWhitelist[] = {
+   "/dev/ion",
+   "/dev/dri/renderD129", // Fixes b/31172436
+   "/system/framework/org.lineageos.platform-res.apk",
++  "/proc/ged",
+ };
+ 
+ static const char kFdPath[] = "/proc/self/fd";
+-- 
+2.20.1
+
