@@ -92,18 +92,13 @@ PRODUCT_PACKAGES += \
 
 # Wifi
 PRODUCT_PACKAGES += \
-   android.hardware.wifi@1.0 \
-   android.hardware.wifi@1.0-impl \
    android.hardware.wifi@1.0-service \
    lib_driver_cmd_mt66xx \
    libwifi-hal-mt66xx \
    hostapd \
    wificond \
-   wifilogd \
    wpa_supplicant \
    wpa_supplicant.conf \
-   muxreport \
-   terservice
 
 # USB Hal
 PRODUCT_PACKGES += \
@@ -266,10 +261,6 @@ PRODUCT_PACKAGES += \
     vndservicemanager \
     servicemanager
 
-# Fingerprint
-PRODUCT_PACKAGES += \
-    android.hardware.biometrics.fingerprint@2.0-service
-
 # Vibrator
 PRODUCT_PACKAGES += \
     android.hardware.vibrator@1.0-service.mtk
@@ -291,13 +282,11 @@ PRODUCT_PACKAGES += \
     audio.usb.default \
     audio.r_submix.default \
     audio_policy.default \
-    libaudiopolicymanagerdefault \
     libaudio-resampler \
     libtinyalsa \
     libtinycompress \
     libtinymix \
-    libtinyxml \
-    libfs_mgr
+    libtinyxml
 
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/audio/audio_policy_configuration.xml:$(TARGET_COPY_OUT_VENDOR)/etc/audio_policy_configuration.xml \
