@@ -1,3 +1,17 @@
+diff --git a/libcutils/fs_config.cpp b/libcutils/fs_config.cpp
+index cb15b57..26039e8 100644
+--- a/libcutils/fs_config.cpp
++++ b/libcutils/fs_config.cpp
+@@ -182,8 +182,7 @@ static const struct fs_path_config android_files[] = {
+                                               "system/bin/run-as" },
+ 
+     // Support FIFO scheduling mode in SurfaceFlinger.
+-    { 00755, AID_SYSTEM,    AID_GRAPHICS,  CAP_MASK_LONG(CAP_SYS_NICE),
+-                                              "system/bin/surfaceflinger" },
++    //{ 00755, AID_SYSTEM,    AID_GRAPHICS,  CAP_MASK_LONG(CAP_SYS_NICE), "system/bin/surfaceflinger" },
+ 
+     // Support hostapd administering a network interface.
+     { 00755, AID_WIFI,      AID_WIFI,      CAP_MASK_LONG(CAP_NET_ADMIN) |
 diff --git a/gatekeeperd/Android.mk b/gatekeeperd/Android.mk
 index 28f0b07ab5924c78256bbc7c3630ff60a864c68d..acb1114d19486cbba5f03626666d09181ee499fe 100644
 --- a/gatekeeperd/Android.mk

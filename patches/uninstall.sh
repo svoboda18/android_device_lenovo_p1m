@@ -10,6 +10,9 @@ cd ../..
 cd frameworks/base
 git reset --hard && git clean -fd
 cd ../..
+cd frameworks/av
+git reset --hard && git clean -fd
+cd ../..
 cd hardware/ril
 git reset --hard && git clean -fd
 cd ../..
