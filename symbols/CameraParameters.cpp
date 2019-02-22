@@ -15,6 +15,10 @@
  */
 #include "CameraParameters.h"
 
+extern "C" {
+    void _ZN7android11MtkCamUtils11DevMetaInfo5clearEv() {}
+}
+
 namespace android {
 
     const char CameraParameters::KEY_SNAPSHOT_PICTURE_FLIP[] = "snapshot-picture-filp";
