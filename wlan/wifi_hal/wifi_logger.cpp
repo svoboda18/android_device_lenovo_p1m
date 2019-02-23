@@ -27,8 +27,6 @@
 #include "common.h"
 #include "cpp_bindings.h"
 
-using namespace android;
-
 typedef enum {
     LOGGER_START_LOGGING = ANDROID_NL80211_SUBCMD_DEBUG_RANGE_START,
     LOGGER_TRIGGER_MEM_DUMP,

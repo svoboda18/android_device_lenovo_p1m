@@ -405,13 +405,13 @@
 /system/bin/em_svr u:object_r:em_svr_exec:s0
 /system/bin/factory u:object_r:factory_exec:s0
 /system/bin/flashlessd u:object_r:flashlessd_exec:s0
-/system/bin/fuelgauged u:object_r:fuelgauged_exec:s0
+#/system/bin/fuelgauged u:object_r:fuelgauged_exec:s0
 /system/bin/ged_srv u:object_r:ged_srv_exec:s0
 /system/bin/gas_srv    u:object_r:gas_srv_exec:s0
 /system/bin/kpoc_charger u:object_r:kpoc_charger_exec:s0
 /system/bin/geomagneticd u:object_r:geomagneticd_exec:s0
 /system/bin/GoogleOtaBinder u:object_r:GoogleOtaBinder_exec:s0
-/system/bin/gsm0710muxdmd2 u:object_r:gsm0710muxdmd2_exec:s0
+#/system/bin/gsm0710muxdmd2 u:object_r:gsm0710muxdmd2_exec:s0
 /system/bin/gsm0710muxd u:object_r:gsm0710muxd_exec:s0
 /system/bin/guiext-server u:object_r:guiext-server_exec:s0
 /system/bin/icusbd u:object_r:icusbd_exec:s0
@@ -436,7 +436,7 @@
 /system/bin/msensord u:object_r:msensord_exec:s0
 /system/bin/mtk_agpsd u:object_r:mtk_agpsd_exec:s0
 /system/bin/MtkCodecService u:object_r:MtkCodecService_exec:s0
-/system/bin/mtkrildmd2 u:object_r:mtkrildmd2_exec:s0
+#/system/bin/mtkrildmd2 u:object_r:mtkrildmd2_exec:s0
 /system/bin/mtkrild u:object_r:mtkrild_exec:s0
 /system/bin/muxreport u:object_r:muxreport_exec:s0
 /system/bin/netdiag u:object_r:netdiag_exec:s0

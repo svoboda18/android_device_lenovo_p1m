@@ -38,7 +38,7 @@ set_prop(ccci_mdinit, init)
 allow ccci_mdinit { ctl_mdlogger_prop ctl_emdlogger1_prop ctl_emdlogger2_prop ctl_emdlogger3_prop ctl_dualmdlogger_prop }:property_service set;
 
 #allow ccci_mdinit ctl_gsm0710muxd_prop:property_service set;
-allow ccci_mdinit { ctl_gsm0710muxd_prop ctl_gsm0710muxd-s_prop ctl_gsm0710muxd-d_prop ctl_gsm0710muxdmd2_prop}:property_service set;
+#allow ccci_mdinit { ctl_gsm0710muxd_prop ctl_gsm0710muxd-s_prop ctl_gsm0710muxd-d_prop ctl_gsm0710muxdmd2_prop}:property_service set;
 
 #allow ccci_mdinit ctl_ril-daemon-mtk_prop:property_service set;
 allow ccci_mdinit { ctl_rildaemon_prop ctl_ril-daemon-mtk_prop ctl_ril-daemon-s_prop ctl_ril-daemon-d_prop ctl_ril-daemon-md2_prop }:property_service set;
