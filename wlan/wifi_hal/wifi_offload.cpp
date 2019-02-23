@@ -13,17 +13,21 @@
 #include <netlink/object-api.h>
 #include <netlink/netlink.h>
 #include <netlink/socket.h>
+#include <netlink-private/object-api.h>
+#include <netlink-private/types.h>
 
 #include "nl80211_copy.h"
 #include "sync.h"
 
 #define LOG_TAG  "WifiHAL"
 
-#include <log/log.h>
+#include <utils/Log.h>
 
 #include "wifi_hal.h"
 #include "common.h"
 #include "cpp_bindings.h"
+
+using namespace android;
 
 typedef enum {
     WIFI_OFFLOAD_START_MKEEP_ALIVE = ANDROID_NL80211_SUBCMD_WIFI_OFFLOAD_RANGE_START,
@@ -31,9 +35,9 @@ typedef enum {
 } WIFI_OFFLOAD_SUB_COMMAND;
 
 typedef enum {
-    MKEEP_ALIVE_ATTRIBUTE_ID = 1,
-    MKEEP_ALIVE_ATTRIBUTE_IP_PKT_LEN,
+    MKEEP_ALIVE_ATTRIBUTE_ID,
     MKEEP_ALIVE_ATTRIBUTE_IP_PKT,
+    MKEEP_ALIVE_ATTRIBUTE_IP_PKT_LEN,
     MKEEP_ALIVE_ATTRIBUTE_SRC_MAC_ADDR,
     MKEEP_ALIVE_ATTRIBUTE_DST_MAC_ADDR,
     MKEEP_ALIVE_ATTRIBUTE_PERIOD_MSEC
@@ -60,14 +64,14 @@ public:
     // constructor for start sending
     MKeepAliveCommand(wifi_interface_handle iface, u8 index, u8 *ip_packet, u16 ip_packet_len,
             u8 *src_mac_addr, u8 *dst_mac_addr, u32 period_msec, GetCmdType cmdType)
-        : WifiCommand("MKeepAliveCommand", iface, 0), mIndex(index), mIpPkt(ip_packet),
-        mIpPktLen(ip_packet_len), mSrcMacAddr(src_mac_addr), mDstMacAddr(dst_mac_addr),
-        mPeriodMsec(period_msec), mType(cmdType)
+        : WifiCommand(iface, 0), mIndex(index), mIpPkt(ip_packet), mIpPktLen(ip_packet_len),
+        mSrcMacAddr(src_mac_addr), mDstMacAddr(dst_mac_addr), mPeriodMsec(period_msec),
+        mType(cmdType)
     { }
 
     // constructor for stop sending
     MKeepAliveCommand(wifi_interface_handle iface, u8 index, GetCmdType cmdType)
-        : WifiCommand("MKeepAliveCommand", iface, 0), mIndex(index), mType(cmdType)
+        : WifiCommand(iface, 0), mIndex(index), mType(cmdType)
     { }
 
     int createRequest(WifiRequest &request) {

@@ -18,7 +18,6 @@ LOCAL_PATH := device/lenovo/p1m
 # Screen density
 PRODUCT_AAPT_CONFIG := normal
 PRODUCT_AAPT_PREF_CONFIG := xhdpi
-PRODUCT_AAPT_PREBUILT_DPI := xhdpi hdpi mdpi
 
 # Product common configurations
 $(call inherit-product, $(SRC_TARGET_DIR)/product/core_64_bit.mk)
@@ -42,7 +41,6 @@ PRODUCT_DEFAULT_PROPERTY_OVERRIDES += \
 # Hardware-specific permissions
 PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.hardware.faketouch.xml:system/etc/permissions/android.hardware.faketouch.xml \
-    frameworks/native/data/etc/android.software.sip.voip.xml:system/etc/permissions/android.software.sip.voip.xml \
     frameworks/native/data/etc/handheld_core_hardware.xml:system/etc/permissions/handheld_core_hardware.xml \
     frameworks/native/data/etc/android.hardware.camera.flash-autofocus.xml:system/etc/permissions/android.hardware.camera.flash-autofocus.xml \
     frameworks/native/data/etc/android.hardware.camera.front.xml:system/etc/permissions/android.hardware.camera.front.xml \
@@ -88,12 +86,15 @@ PRODUCT_PACKAGES += \
 
 # Wifi
 PRODUCT_PACKAGES += \
-   android.hardware.wifi@1.0-service \
-   libwpa_client \
-   hostapd \
-   wificond \
-   wpa_supplicant \
-   wpa_supplicant.conf \
+    android.hardware.wifi@1.0-service \
+    dhcpcd.conf \
+    hostapd \
+    lib_driver_cmd_mt66xx \
+    libwpa_client \
+    wificond \
+    wifilogd \
+    wpa_supplicant \
+    wpa_supplicant.conf
 
 # USB Hal
 PRODUCT_PACKGES += \
@@ -266,19 +267,28 @@ PRODUCT_PACKAGES += \
 
 # Bluetooth
 PRODUCT_PACKAGES += \
-    android.hardware.bluetooth@1.0-service.mtk
+     android.hardware.bluetooth@1.0-impl \
+     android.hardware.bluetooth@1.0-service \
+     libbluetooth_mtk \
+     libbt-vendor
 
 # Audio
 PRODUCT_PACKAGES += \
-    android.hardware.audio@2.0-impl \
-    android.hardware.audio@2.0-service \
-    android.hardware.audio.effect@2.0-impl \
+    audio.a2dp.default \
     audio.r_submix.default \
+    audio.usb.default \
     libaudio-resampler \
     libtinyalsa \
     libtinycompress \
     libtinymix \
-    libtinyxml
+    libtinyxml \
+    SoundRecorder
+
+# Audio HAL
+PRODUCT_PACKAGES += \
+    android.hardware.audio@2.0-impl \
+    android.hardware.audio.effect@2.0-impl \
+    android.hardware.audio@2.0-service
 
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/audio/audio_policy_configuration.xml:$(TARGET_COPY_OUT_VENDOR)/etc/audio_policy_configuration.xml \
@@ -299,6 +309,10 @@ PRODUCT_COPY_FILES += \
 # Tethering
 PRODUCT_PROPERTY_OVERRIDES += \
     net.tethering.noprovisioning=true
+
+# GPS force mode
+PRODUCT_PROPERTY_OVERRIDES += \
+    persist.force.gps.mode=gnss
 
 # Vendor
 $(call inherit-product, vendor/lenovo/p1m/p1m-vendor.mk)
