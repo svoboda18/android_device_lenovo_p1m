@@ -20,6 +20,9 @@ LOCAL_PATH := $(call my-dir)
 
 # Make the HAL library
 # ============================================================
+
+$(warning Build libwifi-hal ...)
+
 include $(CLEAR_VARS)
 
 LOCAL_REQUIRED_MODULES :=
@@ -50,4 +53,3 @@ LOCAL_MODULE := libwifi-hal-mt66xx
 LOCAL_PROPRIETARTY_MODULE := true
 
 include $(BUILD_STATIC_LIBRARY)
-

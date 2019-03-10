@@ -92,7 +92,6 @@ allow init nvram_device:blk_file write;
 #allow init system_file:file { execute_no_trans relabelfrom };
 
 # for fm
-allow init device:chr_file { create ioctl open read write };
 allow init debugfs:dir mounton;
 allow init property_socket:sock_file write;
 
